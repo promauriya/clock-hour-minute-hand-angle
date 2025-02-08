@@ -48,11 +48,11 @@
             const hourlyTotalAngle = hourlyPercentage * totalAngle;
             const minutePercentage = minutes / 60;
             const minuteTotalAngle = minutePercentage * totalAngle;
-            const actualHourlyTotalAngle = hourlyTotalAngle === 0 ? 0 : hourlyTotalAngle + (minutePercentage * hourlyDegree);
+            const actualHourlyTotalAngle = hourlyTotalAngle === 0 ? (minutePercentage === 0)? 0 : (minutePercentage * hourlyDegree) : hourlyTotalAngle + (minutePercentage * hourlyDegree);
             const calculationAngleDifference = Math.abs(actualHourlyTotalAngle - minuteTotalAngle);
             
             const smallestAngle = calculationAngleDifference > 180 ? totalAngle - calculationAngleDifference : calculationAngleDifference;
-            return { actualHourlyTotalAngle, minuteTotalAngle, smallestAngle };
+            return { actualHourlyTotalAngle: (actualHourlyTotalAngle > 360 ? Math.abs(360 - actualHourlyTotalAngle) : actualHourlyTotalAngle), minuteTotalAngle, smallestAngle };
         }
 
         function calculateAndDisplayAngle() {
