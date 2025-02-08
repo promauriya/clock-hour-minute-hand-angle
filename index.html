@@ -43,12 +43,12 @@
                 return null;
             }
             console.log(hours, minutes);
-            const hourlyPercentage = hours / 12;
+            const hourlyPercentage = (hours === 0) ? 0 : hours / 12;
             const hourlyDegree = totalAngle / 12;
             const hourlyTotalAngle = hourlyPercentage * totalAngle;
             const minutePercentage = minutes / 60;
             const minuteTotalAngle = minutePercentage * totalAngle;
-            const actualHourlyTotalAngle = hourlyTotalAngle + (minutePercentage * hourlyDegree);
+            const actualHourlyTotalAngle = hourlyTotalAngle === 0 ? 0 : hourlyTotalAngle + (minutePercentage * hourlyDegree);
             const calculationAngleDifference = Math.abs(actualHourlyTotalAngle - minuteTotalAngle);
             
             const smallestAngle = calculationAngleDifference > 180 ? totalAngle - calculationAngleDifference : calculationAngleDifference;
