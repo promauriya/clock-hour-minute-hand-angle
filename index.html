@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clock Angle Calculator</title>
+    <meta name="description" content="Clock hour and minute hand angle">
+    <title>Clock Handle Angle Calculator</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -40,14 +41,17 @@
                 alert("Please enter a valid time in HH:MM format.");
                 return null;
             }
-            
-            const hourlyAngle = (hours / 12) * totalAngle + (minutes / 60) * (totalAngle / 12);
-            const minuteAngle = (minutes / 60) * totalAngle;
-            const calculationAngleDifference = Math.abs(hourlyAngle - minuteAngle);
+            console.log(hours, minutes);
+            const hourlyPercentage = hours / 12;
+            const hourlyDegree = totalAngle / 12;
+            const hourlyTotalAngle = hourlyPercentage * totalAngle;
+            const minutePercentage = minutes / 60;
+            const minuteTotalAngle = minutePercentage * totalAngle;
+            const actualHourlyTotalAngle = hourlyTotalAngle + (minutePercentage * hourlyDegree);
+            const calculationAngleDifference = Math.abs(actualHourlyTotalAngle - minuteTotalAngle);
             
             const smallestAngle = calculationAngleDifference > 180 ? totalAngle - calculationAngleDifference : calculationAngleDifference;
-            
-            return { hourlyAngle, minuteAngle, smallestAngle };
+            return { actualHourlyTotalAngle, minuteTotalAngle, smallestAngle };
         }
 
         function calculateAndDisplayAngle() {
@@ -55,8 +59,8 @@
             const result = calculateAngle(timeInput);
             
             if (result) {
-                document.getElementById("hourAngle").textContent = `Hour Hand Angle: ${result.hourlyAngle.toFixed(2)}°`;
-                document.getElementById("minuteAngle").textContent = `Minute Hand Angle: ${result.minuteAngle.toFixed(2)}°`;
+                document.getElementById("hourAngle").textContent = `Hour Hand Angle: ${result.actualHourlyTotalAngle.toFixed(2)}°`;
+                document.getElementById("minuteAngle").textContent = `Minute Hand Angle: ${result.minuteTotalAngle.toFixed(2)}°`;
                 document.getElementById("angleDifference").textContent = `Angle Between Hands: ${result.smallestAngle.toFixed(2)}°`;
             }
         }
