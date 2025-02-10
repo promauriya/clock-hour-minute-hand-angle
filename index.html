@@ -52,7 +52,7 @@
             const calculationAngleDifference = Math.abs(actualHourlyTotalAngle - minuteTotalAngle);
             
             const smallestAngle = calculationAngleDifference > 180 ? totalAngle - calculationAngleDifference : calculationAngleDifference;
-            return { actualHourlyTotalAngle: (actualHourlyTotalAngle > 360 ? Math.abs(360 - actualHourlyTotalAngle) : actualHourlyTotalAngle), minuteTotalAngle, smallestAngle };
+            return { actualHourlyTotalAngle: (actualHourlyTotalAngle > totalAngle ? Math.abs(totalAngle - actualHourlyTotalAngle) : actualHourlyTotalAngle), minuteTotalAngle, smallestAngle };
         }
 
         function calculateAndDisplayAngle() {
