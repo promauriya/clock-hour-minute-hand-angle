@@ -49,7 +49,8 @@ For `03:15`:
 If hosted, add a link here: `https://promauriya.github.io/clock-hour-minute-hand-angle/`
 
 ## Author
-Developed by **[Your Name]**
+Developed by **Ryan Mahato**
 
 ## License
 This project is licensed under the MIT License.
+
