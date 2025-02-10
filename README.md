@@ -46,7 +46,7 @@ For `03:15`:
 - **Angle Between Hands** = `|97.5 - 90| = 7.5°`
 
 ## Live Demo
-If hosted, add a link here: `https://promauriya.github.io/clock-hour-minute-hand-angle/`
+Demo link here: `https://promauriya.github.io/clock-hour-minute-hand-angle/`
 
 ## Author
 Developed by **Ryan Mahato**
