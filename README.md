@@ -42,7 +42,7 @@ The **Clock Angle Calculator** is a simple web application that calculates the a
 ## Example Calculation
 For `03:15`:
 - **Minute Hand Angle** = `(15 / 60) * 360 = 90°`
-- **Hour Hand Angle** = `(3 * 30) + (15 / 60) * 30 = 97.5°`
+- **Hour Hand Angle** = `((3 /12) * 360) + ((15 / 60) * 30) = 97.5°`
 - **Angle Between Hands** = `|97.5 - 90| = 7.5°`
 
 ## Live Demo
